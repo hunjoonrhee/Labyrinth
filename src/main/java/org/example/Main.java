@@ -21,7 +21,6 @@ public class Main {
         for(int layer=0;layer<L;layer++){
             for(int row=0;row<R;row++){
                 grid = ScanRow(scanner,grid,layer,row,C);
-
             }
         }
 
@@ -31,18 +30,14 @@ public class Main {
         int lStart =indicesOfStart.get(0);
         int rStart =indicesOfStart.get(1);
         int cStart =indicesOfStart.get(2);
+
         LabyrinthSolver solver = new LabyrinthSolver(labyrinth);
 
-
         if(solver.move(lStart,rStart,cStart)){
-            System.out.println(solver.getTime());
+            System.out.println("Entkommen in " + solver.getTime() + " Minute(n)!");
         }else{
             System.out.println("gefangen :-(");
         }
-
-        System.out.println(labyrinth);
-
-
 
     }
 
