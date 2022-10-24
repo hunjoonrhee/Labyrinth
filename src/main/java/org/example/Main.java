@@ -1,8 +1,6 @@
 package org.example;
 
-import org.example.model.GridLabyrinth;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
