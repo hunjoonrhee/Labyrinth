@@ -41,20 +41,20 @@ public class Labyrinth {
     }
 
     public List<Integer> findIndexOfElementInGrid(String element){
-        List<Integer> indizes = new ArrayList<>();
+        List<Integer> indices = new ArrayList<>();
         for(int l=0;l<endLayer;l++){
             for(int r=0;r<endRow;r++){
                 for(int c=0;c<endColumn;c++){
                     if(grid[l][r][c].equals(element)){
-                        indizes.add(l);
-                        indizes.add(r);
-                        indizes.add(c);
+                        indices.add(l);
+                        indices.add(r);
+                        indices.add(c);
                         break;
                     }
                 }
             }
         }
-        return indizes;
+        return indices;
     }
 
     public void markPath(int layer, int row, int col){
