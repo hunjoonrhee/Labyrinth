@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LabyrinthSolverTest {
+class LabyrinthSolverIntegrationTest {
 
     @Test
-    void move_ShouldReturn_NumberOfSteps_ToTheEnd_WhenAPathFound(){
+    void solve_ShouldReturn_NumberOfSteps_ToTheEnd_WhenAPathFound(){
         // GIVEN
         String[][][] grid = new String[1][2][5];
         grid[0][0][0] = "S";
@@ -25,15 +25,10 @@ class LabyrinthSolverTest {
         // WHEN
         Labyrinth labyrinth = new Labyrinth(grid);
         LabyrinthSolver solver = new LabyrinthSolver(labyrinth);
-        int actual = 0;
-        if(solver.move(0,0,0)){
-           actual = solver.getTime();
-        }else{
-            System.out.println("gefangen :-(");
-        }
+        String actual = solver.solve();
 
         //THEN
-        assertEquals(5,actual);
+        assertEquals("Entkommen in " + 5 + " Minute(n)!",actual);
     }
 
     @Test
@@ -56,10 +51,7 @@ class LabyrinthSolverTest {
         // WHEN
         Labyrinth labyrinth = new Labyrinth(grid);
         LabyrinthSolver solver = new LabyrinthSolver(labyrinth);
-        String actual = null;
-        if(!solver.move(0,0,0)){
-            actual = "gefangen :-(";
-        }
+        String actual = solver.solve();
 
         //THEN
         assertEquals("gefangen :-(",actual);

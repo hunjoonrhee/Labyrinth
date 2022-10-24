@@ -64,18 +64,4 @@ public class Labyrinth {
     public void markTried(int layer, int row, int col){
         grid[layer][row][col] = TRIED;
     }
-
-    public String toString(){
-        String result = "\n";
-        for (int layer=0;layer< grid.length;layer++){
-            for (int row=0;row<grid[layer].length;row++){
-                for(int col=0;col<grid[layer][row].length;col++){
-                    result +=grid[layer][row][col] + "";
-                }
-                result +="\n";
-            }
-            result +="\n";
-        }
-        return result;
-    }
 }

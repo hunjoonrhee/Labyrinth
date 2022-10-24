@@ -25,20 +25,10 @@ public class Main {
         }
 
         Labyrinth labyrinth = new Labyrinth(grid);
-
-        List<Integer> indicesOfStart = labyrinth.findIndexOfElementInGrid("S");
-        int lStart =indicesOfStart.get(0);
-        int rStart =indicesOfStart.get(1);
-        int cStart =indicesOfStart.get(2);
-
         LabyrinthSolver solver = new LabyrinthSolver(labyrinth);
+        String result = solver.solve();
 
-        if(solver.move(lStart,rStart,cStart)){
-            System.out.println("Entkommen in " + solver.getTime() + " Minute(n)!");
-        }else{
-            System.out.println("gefangen :-(");
-        }
-
+        System.out.println(result);
     }
 
     public static String[][][] ScanRow(Scanner scanner,String[][][] grid,

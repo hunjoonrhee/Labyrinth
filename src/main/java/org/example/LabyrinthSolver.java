@@ -1,12 +1,18 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LabyrinthSolver {
     private Labyrinth labyrinth;
-    private int time;
+    private int steps;
+    private String result;
 
     public LabyrinthSolver(Labyrinth labyrinth) {
         this.labyrinth = labyrinth;
-        time = 0;
+        steps = 0;
+        result = null;
+
     }
 
     public boolean move(int layer, int row, int col){
@@ -33,12 +39,27 @@ public class LabyrinthSolver {
             }
             if(done){
                 labyrinth.markPath(layer, row, col);
-                time++;
+                steps++;
             }
         }
         return done;
     }
-    public int getTime(){
-        return time-1;
+    public int getNumberOfSteps(){
+        return steps -1;
+    }
+
+
+
+    public String solve() {
+        int lStart = labyrinth.findIndexOfElementInGrid("S").get(0);
+        int rStart = labyrinth.findIndexOfElementInGrid("S").get(1);
+        int cStart = labyrinth.findIndexOfElementInGrid("S").get(2);
+
+        if(move(lStart,rStart,cStart)){
+            result = "Entkommen in " + getNumberOfSteps() + " Minute(n)!";
+        }else{
+            result = "gefangen :-(";
+        }
+        return result;
     }
 }
